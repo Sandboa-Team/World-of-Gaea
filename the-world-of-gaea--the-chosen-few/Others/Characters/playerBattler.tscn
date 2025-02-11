@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6y0jrwuqh0fp"]
+
+[ext_resource type="Script" path="res://Scripts/player_battler.gd" id="1_eno6n"]
+[ext_resource type="Resource" uid="uid://c1khmgrqai45m" path="res://Others/player_battler.tres" id="2_pjca6"]
+[ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="3_wu3md"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lydb"]
+atlas = ExtResource("3_wu3md")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3ks"]
+atlas = ExtResource("3_wu3md")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trvrv"]
+atlas = ExtResource("3_wu3md")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62t74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lydb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp3ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trvrv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PlayerBattler" type="Node2D" groups=["PlayerBattler"]]
+script = ExtResource("1_eno6n")
+stats_resource = ExtResource("2_pjca6")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_62t74")
+autoplay = "default"
+frame_progress = 0.752879
+flip_h = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -42.0
+offset_top = -71.0
+offset_right = 42.0
+offset_bottom = -44.0
+
+[node name="TurnIndicator" type="Panel" parent="."]
+offset_left = -42.0
+offset_top = -71.0
+offset_right = 42.0
+offset_bottom = -44.0
+
+[node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator"]
+
+[node name="HitFX" type="Sprite2D" parent="."]
+visible = false
+
+[node name="HitFXAnimation" type="AnimationPlayer" parent="HitFX"]
+root_node = NodePath("../../HealthBar")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

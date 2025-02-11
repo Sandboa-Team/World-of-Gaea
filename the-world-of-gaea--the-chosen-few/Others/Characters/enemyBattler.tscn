@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8kfo2m4plngr"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_battler.gd" id="1_4nal2"]
+[ext_resource type="Resource" uid="uid://bitwhnrf54xip" path="res://Others/enemy_battler.tres" id="2_q0lgf"]
+[ext_resource type="Texture2D" uid="uid://bj885biwmbjdn" path="res://Assets/Tiny Wizard.png" id="3_lvcfx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v6cj"]
+atlas = ExtResource("3_lvcfx")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtmte"]
+atlas = ExtResource("3_lvcfx")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yeyr"]
+atlas = ExtResource("3_lvcfx")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukeiu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v6cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtmte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yeyr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyBattler" type="Node2D" groups=["EnemyBattler"]]
+script = ExtResource("1_4nal2")
+stats_resource = ExtResource("2_q0lgf")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ukeiu")
+autoplay = "default"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -34.0
+offset_top = -64.0
+offset_right = 34.0
+offset_bottom = -37.0
+
+[node name="TurnIndicator" type="Panel" parent="."]
+offset_left = -34.0
+offset_top = -64.0
+offset_right = 34.0
+offset_bottom = -37.0
+
+[node name="TurnIndicatorAnimation" type="AnimationPlayer" parent="TurnIndicator"]
+
+[node name="SelectTargetButton" type="Button" parent="."]
+offset_left = -26.0
+offset_top = 45.0
+offset_right = 26.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 10
+text = "Select"
+
+[node name="HitFX" type="Sprite2D" parent="."]
+visible = false
+
+[node name="HitFXAnimation" type="AnimationPlayer" parent="HitFX"]
+root_node = NodePath("../../HealthBar")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
