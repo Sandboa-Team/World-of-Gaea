@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://121l2j4bpw8g"]
+
+[ext_resource type="Script" path="res://Testing/player.gd" id="1_lu3cq"]
+[ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="1_rcas7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iie2l"]
+atlas = ExtResource("1_rcas7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgh7o"]
+atlas = ExtResource("1_rcas7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mbna"]
+atlas = ExtResource("1_rcas7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uolew"]
+atlas = ExtResource("1_rcas7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f66t8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iie2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgh7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mbna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uolew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m304q"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntq2d"]
+radius = 8.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_lu3cq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f66t8")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+shape = SubResource("CapsuleShape2D_m304q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ntq2d")
+disabled = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 2.0
+target_desired_distance = 2.0
+path_postprocessing = 1
+radius = 5.0
+debug_enabled = true
+
+[connection signal="input_event" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
