@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8kfo2m4plngr"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_battler.gd" id="1_4nal2"]
+[ext_resource type="Script" uid="uid://7gah7yl1jh8u" path="res://Scripts/enemy_battler.gd" id="1_4nal2"]
 [ext_resource type="Resource" uid="uid://bitwhnrf54xip" path="res://Others/enemy_battler.tres" id="2_q0lgf"]
 [ext_resource type="Texture2D" uid="uid://bj885biwmbjdn" path="res://Assets/Tiny Wizard.png" id="3_lvcfx"]
 

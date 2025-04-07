@@ -1,10 +1,10 @@
 [gd_scene load_steps=22 format=3 uid="uid://cy5p5cgf2q60"]
 
-[ext_resource type="Script" path="res://Testing/optimize/player_character.gd" id="1_habmr"]
+[ext_resource type="Script" uid="uid://b3tgl51dv4gsu" path="res://Testing/optimize/player_character.gd" id="1_habmr"]
 [ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="1_myh2r"]
 [ext_resource type="PackedScene" uid="uid://244cyir56hrk" path="res://Testing/optimize/states/state_utils/StateMachine.tscn" id="2_emkgh"]
-[ext_resource type="Script" path="res://Testing/optimize/states/navigate_state.gd" id="4_4o16m"]
-[ext_resource type="Script" path="res://Testing/optimize/states/idle_state.gd" id="5_n0sb2"]
+[ext_resource type="Script" uid="uid://bb2hlok8h6dk7" path="res://Testing/optimize/states/navigate_state.gd" id="4_4o16m"]
+[ext_resource type="Script" uid="uid://bu7fif6w2kul6" path="res://Testing/optimize/states/idle_state.gd" id="5_n0sb2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjyrl"]
 atlas = ExtResource("1_myh2r")

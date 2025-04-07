@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://f4od28usm3o1"]
 
-[ext_resource type="Script" path="res://Scripts/battle_manager.gd" id="1_5o3tt"]
+[ext_resource type="Script" uid="uid://c4awihd1ss3c3" path="res://Scripts/battle_manager.gd" id="1_5o3tt"]
 [ext_resource type="PackedScene" uid="uid://c6y0jrwuqh0fp" path="res://Others/Characters/playerBattler.tscn" id="2_486yy"]
 [ext_resource type="PackedScene" uid="uid://b8kfo2m4plngr" path="res://Others/Characters/enemyBattler.tscn" id="3_cievn"]
 
