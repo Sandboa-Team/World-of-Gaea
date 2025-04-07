@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch6hemh60xw54"]
 
-[ext_resource type="Script" path="res://Testing/optimize/tile_spawner.gd" id="1_abnkr"]
+[ext_resource type="Script" uid="uid://bxse2n8y14glk" path="res://Testing/optimize/tile_spawner.gd" id="1_abnkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bygh"]
 size = Vector2(16, 16)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6y0jrwuqh0fp"]
 
-[ext_resource type="Script" path="res://Scripts/player_battler.gd" id="1_eno6n"]
+[ext_resource type="Script" uid="uid://cg2b023wc1whi" path="res://Scripts/player_battler.gd" id="1_eno6n"]
 [ext_resource type="Resource" uid="uid://c1khmgrqai45m" path="res://Others/player_battler.tres" id="2_pjca6"]
 [ext_resource type="Texture2D" uid="uid://exp0vfmwn317" path="res://Assets/Tiny Warrior.png" id="3_wu3md"]
 
