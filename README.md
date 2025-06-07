@@ -1,1 +1,1 @@
-# World-of-Gaea
+# World-of-Gaea (WOG)
